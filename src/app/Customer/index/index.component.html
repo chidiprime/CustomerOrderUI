@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Customer Order</h1>
+  
+    <a href="#" routerLink="/customer/create/" class="btn btn-success">Create New customer</a>
+    
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let customer of customers">
+        <td>{{ customer.id }}</td>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.age }}</td>
+        <td>{{ customer.gender }}</td>
+        <td>
+          <a href="#" [routerLink]="['/customer/', customer.id, 'view']" class="btn btn-info">View</a>
+          <a href="#" [routerLink]="['/customer/', customer.id, 'edit']" class="btn btn-primary">Edit</a>
+          <button type="button" (click)="deletecustomer(customer.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </table>
+ </div>
